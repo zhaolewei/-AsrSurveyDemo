@@ -14,11 +14,10 @@ public class BaiduAsrManager {
     private static final String TAG = BaiduAsrManager.class.getSimpleName();
     private volatile static BaiduAsrManager ins;
 
+    private ResultCallback resultCallback;
     private SpeechRecognizer speechRecognizer;
 
-    //baidu ASR 回调
     private RecognitionListener recognitionListener = new RecognitionListener() {
-
         @Override
         public void onReadyForSpeech(Bundle params) {
             // 准备就绪
@@ -55,6 +54,9 @@ public class BaiduAsrManager {
         @Override
         public void onResults(Bundle results) {
             Logger.i(TAG, "[baidu] 结果：：" + results.toString());
+            if (resultCallback != null) {
+                resultCallback.onResult(results.toString());
+            }
         }
 
         @Override
@@ -94,13 +96,20 @@ public class BaiduAsrManager {
     }
 
     public void startASR() {
-        //buidu
         Intent intent = new Intent();
         speechRecognizer.startListening(intent);
     }
 
-    public void destory() {
+    public void stopASR() {
+        speechRecognizer.stopListening();
+    }
+
+    public void destroy() {
         speechRecognizer.destroy();
         ins = null;
+    }
+
+    public void setResultCallback(ResultCallback resultCallback) {
+        this.resultCallback = resultCallback;
     }
 }

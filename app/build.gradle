@@ -38,4 +38,7 @@ dependencies {
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:2.4.0"
 
     compile 'com.alibaba:fastjson:1.1.61.android'
+
+    compile 'com.jakewharton:butterknife:8.7.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
 }
