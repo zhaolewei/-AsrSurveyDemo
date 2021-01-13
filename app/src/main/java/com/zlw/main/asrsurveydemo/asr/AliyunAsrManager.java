@@ -37,9 +37,9 @@ public class AliyunAsrManager {
     private void init() {
         mNlsRequest = new NlsRequest();
 
-        String appKey = "nls-service-shurufa16khz"; //参考文档:https://help.aliyun.com/document_detail/53288.html?spm=5176.doc30420.6.557.OyG7wF
-        id = "LTAIkPILb1xh02PB";
-        secret = "3B9vbFQvNmlEI3CYrv5UQCIc7OAefd";
+        String appKey = "nls-service-shurufa16khzz"; //参考文档:https://help.aliyun.com/document_detail/53288.html?spm=5176.doc30420.6.557.OyG7wF
+        id = "LTAIkPILb1xh02PBb";
+        secret = "3B9vbFQvNmlEI3CYrv5UQCIc7OAefdd";
 
         mNlsRequest.setAppkey(appKey);    //appkey:  https://ak-console.aliyun.com/?spm=5176.doc53288.2.2.JucfOW#/accesskey
         mNlsRequest.setResponseMode("streaming");//流式为streaming,非流式为normal
